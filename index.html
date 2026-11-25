@@ -1,0 +1,2685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DEMO BEAUTY STUDIO | Where Beauty Meets Elegance</title>
+  <meta name="description" content="Élora Beauty Studio — Luxury skincare, couture hair styling, bridal artistry, and holistic spa experiences crafted with timeless elegance." />
+
+  <!-- Google Fonts: Cormorant Garamond & DM Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet" />
+
+  <!-- Bootstrap 5.3 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+
+  <style>
+    /* ==========================================================================
+       1. DESIGN TOKENS & BRAND PALETTE
+       ========================================================================== */
+    :root {
+      --color-ivory: #F8F3ED;
+      --color-champagne: #D8C3A5;
+      --color-gold: #B89562;
+      --color-gold-dark: #9D7B4A;
+      --color-espresso: #352B27;
+      --color-espresso-soft: #544741;
+      --color-beige: #E9DED3;
+      --color-white: #FFFFFF;
+
+      --font-heading: 'Cormorant Garamond', Georgia, serif;
+      --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+
+      --transition-smooth: all 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+      --shadow-soft: 0 18px 45px rgba(53, 43, 39, 0.06);
+      --shadow-hover: 0 26px 55px rgba(53, 43, 39, 0.12);
+    }
+
+    /* ==========================================================================
+       2. GLOBAL BASE & TYPOGRAPHY
+       ========================================================================== */
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 84px;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--color-ivory);
+      color: var(--color-espresso);
+      line-height: 1.7;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, h4, h5, h6, .font-serif {
+      font-family: var(--font-heading);
+      color: var(--color-espresso);
+      font-weight: 500;
+      letter-spacing: -0.01em;
+    }
+
+    .text-gold {
+      color: var(--color-gold) !important;
+    }
+
+    .text-espresso-soft {
+      color: var(--color-espresso-soft) !important;
+    }
+
+    .bg-ivory {
+      background-color: var(--color-ivory) !important;
+    }
+
+    .bg-beige {
+      background-color: var(--color-beige) !important;
+    }
+
+    .bg-espresso {
+      background-color: var(--color-espresso) !important;
+    }
+
+    .section-padding {
+      padding: 6.5rem 0;
+    }
+
+    @media (max-width: 767.98px) {
+      .section-padding {
+        padding: 4.5rem 0;
+      }
+    }
+
+    /* Section Kicker & Headings */
+    .section-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-family: var(--font-body);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--color-gold);
+      margin-bottom: 0.85rem;
+    }
+
+    .section-kicker::before,
+    .section-kicker::after {
+      content: "";
+      display: inline-block;
+      width: 26px;
+      height: 1px;
+      background-color: var(--color-gold);
+      opacity: 0.65;
+    }
+
+    .section-kicker.kicker-left::before {
+      display: none;
+    }
+
+    .section-title {
+      font-size: clamp(2.25rem, 4vw, 3.35rem);
+      line-height: 1.15;
+      margin-bottom: 1.15rem;
+    }
+
+    .section-subtitle {
+      font-size: 1.02rem;
+      color: var(--color-espresso-soft);
+      max-width: 620px;
+    }
+
+    /* ==========================================================================
+       3. LUXURY BUTTONS
+       ========================================================================== */
+    .btn-luxury-primary {
+      background-color: var(--color-espresso);
+      color: var(--color-white);
+      border: 1px solid var(--color-espresso);
+      padding: 0.85rem 2rem;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      border-radius: 50px;
+      transition: var(--transition-smooth);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+
+    .btn-luxury-primary:hover,
+    .btn-luxury-primary:focus {
+      background-color: var(--color-gold);
+      border-color: var(--color-gold);
+      color: var(--color-white);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(184, 149, 98, 0.32);
+    }
+
+    .btn-luxury-gold {
+      background-color: var(--color-gold);
+      color: var(--color-white);
+      border: 1px solid var(--color-gold);
+      padding: 0.85rem 2rem;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      border-radius: 50px;
+      transition: var(--transition-smooth);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+
+    .btn-luxury-gold:hover,
+    .btn-luxury-gold:focus {
+      background-color: var(--color-espresso);
+      border-color: var(--color-espresso);
+      color: var(--color-white);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(53, 43, 39, 0.25);
+    }
+
+    .btn-luxury-outline {
+      background-color: transparent;
+      color: var(--color-espresso);
+      border: 1px solid var(--color-espresso);
+      padding: 0.85rem 2rem;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      border-radius: 50px;
+      transition: var(--transition-smooth);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+
+    .btn-luxury-outline:hover,
+    .btn-luxury-outline:focus {
+      background-color: var(--color-espresso);
+      color: var(--color-white);
+      transform: translateY(-2px);
+    }
+
+    /* ==========================================================================
+       4. STICKY NAVIGATION BAR
+       ========================================================================== */
+    .navbar-elora {
+      background-color: rgba(248, 243, 237, 0.88);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(184, 149, 98, 0.18);
+      padding: 1.05rem 0;
+      transition: var(--transition-smooth);
+    }
+
+    .navbar-elora.scrolled {
+      background-color: rgba(255, 255, 255, 0.96);
+      padding: 0.72rem 0;
+      box-shadow: 0 10px 30px rgba(53, 43, 39, 0.06);
+    }
+
+    .brand-logo {
+      display: flex;
+      flex-direction: column;
+      line-height: 1;
+      text-decoration: none;
+    }
+
+    .brand-logo-main {
+      font-family: var(--font-heading);
+      font-size: 1.75rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      color: var(--color-espresso);
+    }
+
+    .brand-logo-sub {
+      font-family: var(--font-body);
+      font-size: 0.62rem;
+      font-weight: 500;
+      letter-spacing: 0.34em;
+      text-transform: uppercase;
+      color: var(--color-gold);
+      margin-top: 3px;
+    }
+
+    .navbar-elora .nav-link {
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--color-espresso);
+      padding: 0.5rem 1rem !important;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    .navbar-elora .nav-link::after {
+      content: "";
+      position: absolute;
+      bottom: 4px;
+      left: 1rem;
+      right: 1rem;
+      height: 1.5px;
+      background-color: var(--color-gold);
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.35s ease;
+    }
+
+    .navbar-elora .nav-link:hover,
+    .navbar-elora .nav-link.active {
+      color: var(--color-gold);
+    }
+
+    .navbar-elora .nav-link:hover::after,
+    .navbar-elora .nav-link.active::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+
+    .navbar-toggler {
+      border: 1px solid rgba(53, 43, 39, 0.25);
+      border-radius: 10px;
+      padding: 0.45rem 0.65rem;
+    }
+
+    .navbar-toggler:focus {
+      box-shadow: 0 0 0 0.2rem rgba(184, 149, 98, 0.25);
+    }
+
+    /* ==========================================================================
+       5. HERO SECTION (SPLIT-SCREEN LUXURY)
+       ========================================================================== */
+    .hero-section {
+      position: relative;
+      min-height: calc(100vh - 82px);
+      display: flex;
+      align-items: center;
+      background: linear-gradient(135deg, var(--color-ivory) 0%, var(--color-beige) 100%);
+      overflow: hidden;
+      padding: 3.5rem 0 4.5rem;
+    }
+
+    .hero-decorative-circle {
+      position: absolute;
+      width: 520px;
+      height: 520px;
+      border-radius: 50%;
+      border: 1px solid rgba(184, 149, 98, 0.22);
+      top: -120px;
+      left: -140px;
+      pointer-events: none;
+    }
+
+    .hero-tagline-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background-color: rgba(255, 255, 255, 0.78);
+      border: 1px solid rgba(184, 149, 98, 0.35);
+      padding: 0.45rem 1.15rem;
+      border-radius: 50px;
+      font-size: 0.78rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--color-espresso);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-title {
+      font-size: clamp(2.85rem, 5.4vw, 4.75rem);
+      line-height: 1.06;
+      font-weight: 500;
+      margin-bottom: 1.5rem;
+      color: var(--color-espresso);
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--color-gold);
+      font-weight: 500;
+    }
+
+    .hero-description {
+      font-size: 1.08rem;
+      color: var(--color-espresso-soft);
+      max-width: 510px;
+      margin-bottom: 2.25rem;
+    }
+
+    .hero-image-wrapper {
+      position: relative;
+      padding: 1.25rem;
+    }
+
+    .hero-image-frame {
+      position: relative;
+      border-radius: 240px 240px 24px 24px;
+      overflow: hidden;
+      box-shadow: var(--shadow-hover);
+      aspect-ratio: 4 / 5;
+      max-height: 630px;
+      margin: 0 auto;
+    }
+
+    .hero-image-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 1.2s ease;
+    }
+
+    .hero-image-frame:hover img {
+      transform: scale(1.04);
+    }
+
+    .hero-floating-badge {
+      position: absolute;
+      bottom: 2.25rem;
+      left: 0;
+      background-color: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(184, 149, 98, 0.3);
+      border-radius: 18px;
+      padding: 1.1rem 1.4rem;
+      box-shadow: var(--shadow-soft);
+      max-width: 245px;
+    }
+
+    /* Hero Entrance Animations */
+    @keyframes fadeUpLuxury {
+      from {
+        opacity: 0;
+        transform: translateY(28px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero-animate-1 { animation: fadeUpLuxury 0.9s ease forwards; }
+    .hero-animate-2 { animation: fadeUpLuxury 0.9s ease 0.15s forwards; opacity: 0; }
+    .hero-animate-3 { animation: fadeUpLuxury 0.9s ease 0.3s forwards; opacity: 0; }
+    .hero-animate-4 { animation: fadeUpLuxury 0.9s ease 0.45s forwards; opacity: 0; }
+    .hero-animate-img { animation: fadeUpLuxury 1.1s ease 0.2s forwards; opacity: 0; }
+
+    /* ==========================================================================
+       6. ABOUT US SECTION
+       ========================================================================== */
+    .about-img-stack {
+      position: relative;
+    }
+
+    .about-main-img {
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: var(--shadow-soft);
+      aspect-ratio: 4 / 4.6;
+    }
+
+    .about-main-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .about-accent-card {
+      background-color: var(--color-espresso);
+      color: var(--color-white);
+      border-radius: 20px;
+      padding: 1.75rem;
+      position: absolute;
+      bottom: -24px;
+      right: 20px;
+      max-width: 250px;
+      box-shadow: var(--shadow-hover);
+      border: 1px solid rgba(216, 195, 165, 0.25);
+    }
+
+    .about-highlight-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1rem;
+      background-color: var(--color-white);
+      border-radius: 16px;
+      border: 1px solid rgba(184, 149, 98, 0.16);
+      transition: var(--transition-smooth);
+    }
+
+    .about-highlight-item:hover {
+      transform: translateY(-3px);
+      border-color: var(--color-gold);
+    }
+
+    .about-highlight-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background-color: var(--color-ivory);
+      color: var(--color-gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      flex-shrink: 0;
+    }
+
+    /* ==========================================================================
+       7. SERVICES CARDS
+       ========================================================================== */
+    .service-card {
+      background-color: var(--color-white);
+      border-radius: 22px;
+      overflow: hidden;
+      border: 1px solid rgba(184, 149, 98, 0.16);
+      box-shadow: var(--shadow-soft);
+      transition: var(--transition-smooth);
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-hover);
+      border-color: rgba(184, 149, 98, 0.45);
+    }
+
+    .service-card-img {
+      position: relative;
+      height: 245px;
+      overflow: hidden;
+    }
+
+    .service-card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.7s ease;
+    }
+
+    .service-card:hover .service-card-img img {
+      transform: scale(1.07);
+    }
+
+    .service-price-badge {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background-color: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(8px);
+      color: var(--color-espresso);
+      font-weight: 600;
+      font-size: 0.85rem;
+      padding: 0.4rem 0.95rem;
+      border-radius: 50px;
+      border: 1px solid rgba(184, 149, 98, 0.35);
+    }
+
+    .service-card-body {
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .service-card-title {
+      font-size: 1.55rem;
+      margin-bottom: 0.65rem;
+    }
+
+    .btn-learn-more {
+      margin-top: auto;
+      background: transparent;
+      border: none;
+      padding: 0;
+      color: var(--color-gold);
+      font-weight: 600;
+      font-size: 0.85rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      transition: gap 0.3s ease, color 0.3s ease;
+      cursor: pointer;
+    }
+
+    .btn-learn-more:hover {
+      color: var(--color-espresso);
+      gap: 0.75rem;
+    }
+
+    /* ==========================================================================
+       8. WHY CHOOSE US
+       ========================================================================== */
+    .pillar-card {
+      background-color: var(--color-white);
+      border-radius: 22px;
+      padding: 2.25rem 1.75rem;
+      text-align: center;
+      border: 1px solid rgba(184, 149, 98, 0.18);
+      box-shadow: var(--shadow-soft);
+      transition: var(--transition-smooth);
+      height: 100%;
+    }
+
+    .pillar-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--color-gold);
+    }
+
+    .pillar-icon-ring {
+      width: 68px;
+      height: 68px;
+      border-radius: 50%;
+      background-color: var(--color-ivory);
+      border: 1px solid rgba(184, 149, 98, 0.35);
+      color: var(--color-gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.65rem;
+      margin: 0 auto 1.35rem;
+      transition: var(--transition-smooth);
+    }
+
+    .pillar-card:hover .pillar-icon-ring {
+      background-color: var(--color-gold);
+      color: var(--color-white);
+    }
+
+    /* ==========================================================================
+       9. OUR SPECIALISTS
+       ========================================================================== */
+    .specialist-card {
+      background-color: var(--color-white);
+      border-radius: 22px;
+      overflow: hidden;
+      border: 1px solid rgba(184, 149, 98, 0.18);
+      box-shadow: var(--shadow-soft);
+      transition: var(--transition-smooth);
+      text-align: center;
+      height: 100%;
+    }
+
+    .specialist-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .specialist-photo {
+      height: 310px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .specialist-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      transition: transform 0.7s ease;
+    }
+
+    .specialist-card:hover .specialist-photo img {
+      transform: scale(1.05);
+    }
+
+    .specialist-info {
+      padding: 1.65rem 1.35rem;
+    }
+
+    .specialist-role {
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--color-gold);
+      margin-bottom: 0.35rem;
+    }
+
+    /* ==========================================================================
+       10. GALLERY & LIGHTBOX
+       ========================================================================== */
+    .gallery-filter-btn {
+      background-color: var(--color-white);
+      color: var(--color-espresso);
+      border: 1px solid rgba(184, 149, 98, 0.3);
+      border-radius: 50px;
+      padding: 0.5rem 1.35rem;
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: var(--transition-smooth);
+      cursor: pointer;
+    }
+
+    .gallery-filter-btn:hover,
+    .gallery-filter-btn.active {
+      background-color: var(--color-espresso);
+      color: var(--color-white);
+      border-color: var(--color-espresso);
+    }
+
+    .gallery-item {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      cursor: pointer;
+      aspect-ratio: 4 / 4.2;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .gallery-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(53, 43, 39, 0.78) 0%, rgba(53, 43, 39, 0.1) 60%, transparent 100%);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 1.5rem;
+      color: var(--color-white);
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.08);
+    }
+
+    .gallery-item:hover .gallery-overlay {
+      opacity: 1;
+    }
+
+    /* ==========================================================================
+       11. PRICING & PACKAGES
+       ========================================================================== */
+    .pricing-card {
+      background-color: var(--color-white);
+      border-radius: 26px;
+      padding: 2.75rem 2.15rem;
+      border: 1px solid rgba(184, 149, 98, 0.22);
+      box-shadow: var(--shadow-soft);
+      transition: var(--transition-smooth);
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .pricing-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .pricing-card.featured {
+      background-color: var(--color-espresso);
+      color: var(--color-white);
+      border: 1px solid var(--color-gold);
+      transform: translateY(-10px);
+    }
+
+    .pricing-card.featured:hover {
+      transform: translateY(-16px);
+    }
+
+    .pricing-card.featured h3,
+    .pricing-card.featured .pricing-amount {
+      color: var(--color-white);
+    }
+
+    .pricing-badge {
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: var(--color-gold);
+      color: var(--color-white);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 0.35rem 1.25rem;
+      border-radius: 50px;
+      white-space: nowrap;
+    }
+
+    .pricing-amount {
+      font-family: var(--font-heading);
+      font-size: 3.1rem;
+      font-weight: 600;
+      line-height: 1;
+      color: var(--color-espresso);
+    }
+
+    .pricing-features {
+      list-style: none;
+      padding: 0;
+      margin: 1.75rem 0 2.25rem;
+      flex-grow: 1;
+    }
+
+    .pricing-features li {
+      padding: 0.6rem 0;
+      border-bottom: 1px solid rgba(184, 149, 98, 0.16);
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      font-size: 0.94rem;
+    }
+
+    .pricing-features li:last-child {
+      border-bottom: none;
+    }
+
+    /* ==========================================================================
+       12. APPOINTMENT BOOKING FORM
+       ========================================================================== */
+    .booking-wrapper {
+      background-color: var(--color-white);
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: var(--shadow-hover);
+      border: 1px solid rgba(184, 149, 98, 0.22);
+    }
+
+    .booking-aside {
+      background: linear-gradient(160deg, var(--color-espresso) 0%, #241D1A 100%);
+      color: var(--color-white);
+      padding: 3rem 2.5rem;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .form-label-luxury {
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-espresso);
+      margin-bottom: 0.45rem;
+    }
+
+    .form-control-luxury,
+    .form-select-luxury {
+      background-color: var(--color-ivory);
+      border: 1px solid rgba(184, 149, 98, 0.3);
+      border-radius: 14px;
+      padding: 0.82rem 1.1rem;
+      font-size: 0.95rem;
+      color: var(--color-espresso);
+      transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    }
+
+    .form-control-luxury:focus,
+    .form-select-luxury:focus {
+      background-color: var(--color-white);
+      border-color: var(--color-gold);
+      box-shadow: 0 0 0 0.22rem rgba(184, 149, 98, 0.2);
+      outline: none;
+    }
+
+    .form-control-luxury.is-invalid,
+    .form-select-luxury.is-invalid {
+      border-color: #dc3545;
+      background-color: #fff8f8;
+    }
+
+    /* ==========================================================================
+       13. TESTIMONIALS & CONTACT
+       ========================================================================== */
+    .testimonial-card {
+      background-color: var(--color-white);
+      border-radius: 22px;
+      padding: 2.25rem;
+      border: 1px solid rgba(184, 149, 98, 0.2);
+      box-shadow: var(--shadow-soft);
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .sample-label-pill {
+      display: inline-block;
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--color-gold-dark);
+      background-color: var(--color-ivory);
+      border: 1px solid rgba(184, 149, 98, 0.3);
+      padding: 0.25rem 0.75rem;
+      border-radius: 50px;
+    }
+
+    .contact-info-card {
+      background-color: var(--color-white);
+      border-radius: 22px;
+      padding: 2rem;
+      border: 1px solid rgba(184, 149, 98, 0.2);
+      box-shadow: var(--shadow-soft);
+      height: 100%;
+    }
+
+    .social-circle-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 1px solid rgba(184, 149, 98, 0.38);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-espresso);
+      text-decoration: none;
+      transition: var(--transition-smooth);
+    }
+
+    .social-circle-btn:hover {
+      background-color: var(--color-gold);
+      border-color: var(--color-gold);
+      color: var(--color-white);
+      transform: translateY(-3px);
+    }
+
+    /* ==========================================================================
+       14. FOOTER & BACK-TO-TOP
+       ========================================================================== */
+    .footer-elora {
+      background-color: var(--color-espresso);
+      color: rgba(255, 255, 255, 0.8);
+      padding: 5rem 0 2.5rem;
+    }
+
+    .footer-link {
+      color: rgba(255, 255, 255, 0.75);
+      text-decoration: none;
+      transition: color 0.3s ease;
+      display: inline-block;
+      padding: 0.25rem 0;
+    }
+
+    .footer-link:hover {
+      color: var(--color-champagne);
+    }
+
+    .back-to-top {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background-color: var(--color-espresso);
+      color: var(--color-white);
+      border: 1px solid var(--color-gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      box-shadow: var(--shadow-hover);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(15px);
+      transition: var(--transition-smooth);
+      z-index: 1040;
+      cursor: pointer;
+    }
+
+    .back-to-top.visible {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .back-to-top:hover {
+      background-color: var(--color-gold);
+      color: var(--color-white);
+    }
+
+    /* ==========================================================================
+       15. SCROLL REVEAL UTILITY
+       ========================================================================== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .reveal.revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Custom Modal Styling */
+    .modal-luxury .modal-content {
+      background-color: var(--color-ivory);
+      border: 1px solid rgba(184, 149, 98, 0.35);
+      border-radius: 24px;
+      overflow: hidden;
+    }
+  </style>
+</head>
+<body data-bs-spy="scroll" data-bs-target="#mainNavbar" data-bs-offset="100" tabindex="0">
+
+  <!-- ========================================================================
+       STICKY NAVBAR
+       ======================================================================== -->
+  <nav id="mainNavbar" class="navbar navbar-expand-lg navbar-elora sticky-top" aria-label="Primary Navigation">
+    <div class="container">
+      <a class="brand-logo" href="#home">
+        <span class="brand-logo-main">ÉLORA</span>
+        <span class="brand-logo-sub">Beauty Studio</span>
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavContent" aria-controls="navbarNavContent" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="bi bi-list fs-4 text-dark"></i>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNavContent">
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
+          <li class="nav-item"><a class="nav-link" href="#pricing">Pricing</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+        <div class="d-flex">
+          <a href="#booking" class="btn-luxury-primary py-2 px-4">Book Appointment</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ========================================================================
+       HERO SECTION (SPLIT-SCREEN LUXURY)
+       ======================================================================== -->
+  <header id="home" class="hero-section">
+    <div class="hero-decorative-circle" aria-hidden="true"></div>
+    <div class="container position-relative">
+      <div class="row align-items-center g-5">
+        <!-- Left Content Column -->
+        <div class="col-lg-6">
+          <div class="hero-tagline-pill hero-animate-1">
+            <i class="bi bi-stars text-gold"></i>
+            <span>Where Beauty Meets Elegance</span>
+          </div>
+          <h1 class="hero-title hero-animate-2">
+            Discover Your <em>Natural Beauty.</em>
+          </h1>
+          <p class="hero-description hero-animate-3">
+            Step into an intimate sanctuary of refined skincare, couture hair artistry, and bespoke bridal radiance. At Élora Beauty Studio, every ritual is tailored to illuminate your timeless grace.
+          </p>
+          <div class="d-flex flex-wrap gap-3 hero-animate-4">
+            <a href="#booking" class="btn-luxury-primary">
+              <span>Book Appointment</span>
+              <i class="bi bi-arrow-right"></i>
+            </a>
+            <a href="#services" class="btn-luxury-outline">
+              <span>Explore Services</span>
+            </a>
+          </div>
+
+          <!-- Subtle Brand Pillars Row -->
+          <div class="row g-4 mt-4 pt-3 border-top border-secondary border-opacity-10 hero-animate-4">
+            <div class="col-4">
+              <div class="font-serif fs-2 fw-semibold lh-1">100%</div>
+              <small class="text-espresso-soft">Bespoke Rituals</small>
+            </div>
+            <div class="col-4">
+              <div class="font-serif fs-2 fw-semibold lh-1">Botanical</div>
+              <small class="text-espresso-soft">Clean Formulations</small>
+            </div>
+            <div class="col-4">
+              <div class="font-serif fs-2 fw-semibold lh-1">Private</div>
+              <small class="text-espresso-soft">Serene Suites</small>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Visual Column -->
+        <div class="col-lg-6 hero-animate-img">
+          <div class="hero-image-wrapper">
+            <div class="hero-image-frame">
+              <img
+                src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=1000&q=85"
+                alt="Luminous luxury skincare and beauty treatment at Élora Beauty Studio"
+                onerror="this.src='https://placehold.co/800x1000/E9DED3/352B27?text=ELORA+BEAUTY+STUDIO'"
+              />
+            </div>
+            <div class="hero-floating-badge d-none d-sm-block">
+              <div class="d-flex align-items-center gap-2 mb-1">
+                <i class="bi bi-gem text-gold"></i>
+                <span class="small fw-semibold text-uppercase" style="letter-spacing: 0.1em;">Signature Care</span>
+              </div>
+              <p class="mb-0 small text-espresso-soft">
+                Personalized consultations paired with clean, luxury-grade formulations.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========================================================================
+       ABOUT US SECTION
+       ======================================================================== -->
+  <section id="about" class="section-padding bg-ivory">
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <!-- Salon Interior Photography -->
+        <div class="col-lg-6 reveal">
+          <div class="about-img-stack pe-lg-4 pb-4">
+            <div class="about-main-img">
+              <img
+                src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1000&q=85"
+                alt="Élora Beauty Studio serene luxury salon interior"
+                onerror="this.src='https://placehold.co/800x920/D8C3A5/352B27?text=Elora+Salon+Interior'"
+              />
+            </div>
+            <div class="about-accent-card">
+              <p class="font-serif fst-italic fs-5 mb-2 text-white">
+                "True beauty is effortless when nurtured in tranquility."
+              </p>
+              <span class="small text-uppercase" style="letter-spacing: 0.16em; color: var(--color-champagne);">
+                — The Élora Philosophy
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Brand Story & Highlights -->
+        <div class="col-lg-6 reveal">
+          <span class="section-kicker kicker-left">Our Story</span>
+          <h2 class="section-title">A Sanctuary Crafted for Timeless Radiance</h2>
+          <p class="text-espresso-soft mb-3">
+            Founded on the belief that self-care should feel like an unhurried ritual, <strong>ÉLORA BEAUTY STUDIO</strong> blends modern aesthetic science with warm, architectural serenity. Every detail—from our warm ivory interiors to our curated botanical elixirs—is designed to quiet the outside world.
+          </p>
+          <p class="text-espresso-soft mb-4">
+            Our master stylists, estheticians, and bridal artists take the time to understand your unique features, skin health, and personal aesthetic before crafting a treatment tailored exclusively to you.
+          </p>
+
+          <div class="row g-3 mb-4">
+            <div class="col-sm-6">
+              <div class="about-highlight-item">
+                <div class="about-highlight-icon"><i class="bi bi-flower1"></i></div>
+                <div>
+                  <h3 class="h5 mb-1">Clean Luxury Formulas</h3>
+                  <p class="small text-espresso-soft mb-0">Cruelty-free, dermatologist-tested skincare & hair elixirs.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="about-highlight-item">
+                <div class="about-highlight-icon"><i class="bi bi-award"></i></div>
+                <div>
+                  <h3 class="h5 mb-1">Artisanal Mastery</h3>
+                  <p class="small text-espresso-soft mb-0">Certified specialists trained in international beauty techniques.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <a href="#booking" class="btn-luxury-gold">Reserve Your Experience</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       OUR SERVICES SECTION
+       ======================================================================== -->
+  <section id="services" class="section-padding bg-beige">
+    <div class="container">
+      <div class="text-center mx-auto mb-5 reveal">
+        <span class="section-kicker">Curated Menu</span>
+        <h2 class="section-title">Signature Beauty & Spa Services</h2>
+        <p class="section-subtitle mx-auto">
+          Each service begins with a one-on-one consultation to ensure harmonious, luminous results tailored to your individual beauty.
+        </p>
+      </div>
+
+      <div class="row g-4" id="servicesGrid">
+        <!-- Service 1: Hair Styling & Treatment -->
+        <div class="col-md-6 col-lg-4 reveal">
+          <article class="service-card">
+            <div class="service-card-img">
+              <img
+                src="https://images.unsplash.com/photo-1562322140-8baeececf3df?auto=format&fit=crop&w=800&q=85"
+                alt="Hair Styling and Treatment"
+                onerror="this.src='https://placehold.co/800x600/E9DED3/352B27?text=Hair+Styling'"
+              />
+              <span class="service-price-badge">From $85</span>
+            </div>
+            <div class="service-card-body">
+              <h3 class="service-card-title">Hair Styling &amp; Treatment</h3>
+              <p class="text-espresso-soft small mb-4">
+                Precision couture cuts, silk blowouts, and deep keratin &amp; botanical scalp rituals that restore mirror-like shine and movement.
+              </p>
+              <button
+                type="button"
+                class="btn-learn-more"
+                data-service-id="hair-styling"
+              >
+                <span>Learn More</span>
+                <i class="bi bi-arrow-right"></i>
+              </button>
+            </div>
+          </article>
+        </div>
+
+        <!-- Service 2: Bridal Makeup -->
+        <div class="col-md-6 col-lg-4 reveal">
+          <article class="service-card">
+            <div class="service-card-img">
+              <img
+                src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?auto=format&fit=crop&w=800&q=85"
+                alt="Bridal Makeup"
+                onerror="this.src='https://placehold.co/800x600/E9DED3/352B27?text=Bridal+Makeup'"
+              />
+              <span class="service-price-badge">From $240</span>
+            </div>
+            <div class="service-card-body">
+              <h3 class="service-card-title">Bridal Makeup</h3>
+              <p class="text-espresso-soft small mb-4">
+                Luminous, long-wear editorial artistry designed to photograph effortlessly while celebrating your natural bone structure and glow.
+              </p>
+              <button
+                type="button"
+                class="btn-learn-more"
+                data-service-id="bridal-makeup"
+              >
+                <span>Learn More</span>
+                <i class="bi bi-arrow-right"></i>
+              </button>
+            </div>
+          </article>
+        </div>
+
+        <!-- Service 3: Facial & Skincare -->
+        <div class="col-md-6 col-lg-4 reveal">
+          <article class="service-card">
+            <div class="service-card-img">
+              <img
+                src="https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?auto=format&fit=crop&w=800&q=85"
+                alt="Facial and Skincare"
+                onerror="this.src='https://placehold.co/800x600/E9DED3/352B27?text=Facial+Skincare'"
+              />
+              <span class="service-price-badge">From $115</span>
+            </div>
+            <div class="service-card-body">
+              <h3 class="service-card-title">Facial &amp; Skincare</h3>
+              <p class="text-espresso-soft small mb-4">
+                Bespoke cellular renewal facials combining lymphatic sculpting massage, gentle enzyme resurfacing, and peptide infusion.
+              </p>
+              <button
+                type="button"
+                class="btn-learn-more"
+                data-service-id="facial-skincare"
+              >
+                <span>Learn More</span>
+                <i class="bi bi-arrow-right"></i>
+              </button>
+            </div>
+          </article>
+        </div>
+
+        <!-- Service 4: Manicure & Pedicure -->
+        <div class="col-md-6 col-lg-4 reveal">
+          <article class="service-card">
+            <div class="service-card-img">
+              <img
+                src="https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=800&q=85"
+                alt="Manicure and Pedicure"
+                onerror="this.src='https://placehold.co/800x600/E9DED3/352B27?text=Manicure+Pedicure'"
+              />
+              <span class="service-price-badge">From $65</span>
+            </div>
+            <div class="service-card-body">
+              <h3 class="service-card-title">Manicure &amp; Pedicure</h3>
+              <p class="text-espresso-soft small mb-4">
+                Detailed cuticle care, warm shea butter exfoliation, and non-toxic gel or classic neutral finishes for impeccably groomed hands and feet.
+              </p>
+              <button
+                type="button"
+                class="btn-learn-more"
+                data-service-id="manicure-pedicure"
+              >
+                <span>Learn More</span>
+                <i class="bi bi-arrow-right"></i>
+              </button>
+            </div>
+          </article>
+        </div>
+
+        <!-- Service 5: Spa & Relaxation -->
+        <div class="col-md-6 col-lg-4 reveal">
+          <article class="service-card">
+            <div class="service-card-img">
+              <img
+                src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=800&q=85"
+                alt="Spa and Relaxation"
+                onerror="this.src='https://placehold.co/800x600/E9DED3/352B27?text=Spa+Relaxation'"
+              />
+              <span class="service-price-badge">From $135</span>
+            </div>
+            <div class="service-card-body">
+              <h3 class="service-card-title">Spa &amp; Relaxation</h3>
+              <p class="text-espresso-soft small mb-4">
+                Aromatherapy hot-stone body rituals, detoxifying mineral wraps, and tension-melting massage therapies in private candlelit suites.
+              </p>
+              <button
+                type="button"
+                class="btn-learn-more"
+                data-service-id="spa-relaxation"
+              >
+                <span>Learn More</span>
+                <i class="bi bi-arrow-right"></i>
+              </button>
+            </div>
+          </article>
+        </div>
+
+        <!-- Service 6: Hair Coloring -->
+        <div class="col-md-6 col-lg-4 reveal">
+          <article class="service-card">
+            <div class="service-card-img">
+              <img
+                src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=800&q=85"
+                alt="Hair Coloring"
+                onerror="this.src='https://placehold.co/800x600/E9DED3/352B27?text=Hair+Coloring'"
+              />
+              <span class="service-price-badge">From $145</span>
+            </div>
+            <div class="service-card-body">
+              <h3 class="service-card-title">Hair Coloring</h3>
+              <p class="text-espresso-soft small mb-4">
+                Hand-painted dimensional balayage, seamless root melts, and ammonia-free glosses formulated with bond-building protection.
+              </p>
+              <button
+                type="button"
+                class="btn-learn-more"
+                data-service-id="hair-coloring"
+              >
+                <span>Learn More</span>
+                <i class="bi bi-arrow-right"></i>
+              </button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       WHY CHOOSE US SECTION
+       ======================================================================== -->
+  <section class="section-padding bg-ivory">
+    <div class="container">
+      <div class="text-center mx-auto mb-5 reveal">
+        <span class="section-kicker">The Élora Difference</span>
+        <h2 class="section-title">Why Discerning Guests Choose Us</h2>
+        <p class="section-subtitle mx-auto">
+          We elevate every appointment through uncompromising hygiene, attentive hospitality, and artistry rooted in genuine care.
+        </p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-sm-6 col-lg-3 reveal">
+          <div class="pillar-card">
+            <div class="pillar-icon-ring"><i class="bi bi-stars"></i></div>
+            <h3 class="h4 mb-2">Professional Beauty Experts</h3>
+            <p class="small text-espresso-soft mb-0">
+              Dedicated senior stylists, master colorists, and licensed estheticians committed to continuous artistry.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-sm-6 col-lg-3 reveal">
+          <div class="pillar-card">
+            <div class="pillar-icon-ring"><i class="bi bi-droplet-half"></i></div>
+            <h3 class="h4 mb-2">Premium Products</h3>
+            <p class="small text-espresso-soft mb-0">
+              High-performance botanical skincare, bond-protecting color lines, and non-toxic nail lacquers.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-sm-6 col-lg-3 reveal">
+          <div class="pillar-card">
+            <div class="pillar-icon-ring"><i class="bi bi-heart"></i></div>
+            <h3 class="h4 mb-2">Personalized Treatments</h3>
+            <p class="small text-espresso-soft mb-0">
+              Thoughtful skin and hair diagnostics before every service to customize formulas to your exact needs.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-sm-6 col-lg-3 reveal">
+          <div class="pillar-card">
+            <div class="pillar-icon-ring"><i class="bi bi-cup-hot"></i></div>
+            <h3 class="h4 mb-2">Luxury Experience</h3>
+            <p class="small text-espresso-soft mb-0">
+              Complimentary herbal infusions, warm aromatherapy towels, and tranquil acoustics from arrival to farewell.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       OUR SPECIALISTS SECTION
+       ======================================================================== -->
+  <section id="specialists" class="section-padding bg-beige">
+    <div class="container">
+      <div class="text-center mx-auto mb-5 reveal">
+        <span class="section-kicker">Artisans of Beauty</span>
+        <h2 class="section-title">Meet Our Specialists</h2>
+        <p class="section-subtitle mx-auto">
+          Passionate creatives and skincare specialists devoted to bringing out your most confident, luminous self.
+        </p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-sm-6 col-lg-3 reveal">
+          <div class="specialist-card">
+            <div class="specialist-photo">
+              <img
+                src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=700&q=85"
+                alt="Camille Laurent - Creative Hair Director"
+                onerror="this.src='https://placehold.co/600x750/E9DED3/352B27?text=Camille+Laurent'"
+              />
+            </div>
+            <div class="specialist-info">
+              <div class="specialist-role">Creative Hair Director</div>
+              <h3 class="h4 mb-1">Camille Laurent</h3>
+              <p class="small text-espresso-soft mb-0">Dimensional Balayage &amp; Editorial Styling</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-6 col-lg-3 reveal">
+          <div class="specialist-card">
+            <div class="specialist-photo">
+              <img
+                src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=700&q=85"
+                alt="Elena Rostova - Lead Esthetician"
+                onerror="this.src='https://placehold.co/600x750/E9DED3/352B27?text=Elena+Rostova'"
+              />
+            </div>
+            <div class="specialist-info">
+              <div class="specialist-role">Lead Holistic Esthetician</div>
+              <h3 class="h4 mb-1">Elena Rostova</h3>
+              <p class="small text-espresso-soft mb-0">Sculptural Facials &amp; Cellular Renewal</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-6 col-lg-3 reveal">
+          <div class="specialist-card">
+            <div class="specialist-photo">
+              <img
+                src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=700&q=85"
+                alt="Sora Takahashi - Bridal Makeup Artist"
+                onerror="this.src='https://placehold.co/600x750/E9DED3/352B27?text=Sora+Takahashi'"
+              />
+            </div>
+            <div class="specialist-info">
+              <div class="specialist-role">Senior Bridal Artist</div>
+              <h3 class="h4 mb-1">Sora Takahashi</h3>
+              <p class="small text-espresso-soft mb-0">Soft-Glam Bridal &amp; Red-Carpet Radiance</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-6 col-lg-3 reveal">
+          <div class="specialist-card">
+            <div class="specialist-photo">
+              <img
+                src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=700&q=85"
+                alt="Nadia Vance - Spa & Nail Curator"
+                onerror="this.src='https://placehold.co/600x750/E9DED3/352B27?text=Nadia+Vance'"
+              />
+            </div>
+            <div class="specialist-info">
+              <div class="specialist-role">Spa &amp; Nail Curator</div>
+              <h3 class="h4 mb-1">Nadia Vance</h3>
+              <p class="small text-espresso-soft mb-0">Botanical Body Rituals &amp; Minimalist Nail Art</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       GALLERY SECTION WITH FILTER & LIGHTBOX
+       ======================================================================== -->
+  <section id="gallery" class="section-padding bg-ivory">
+    <div class="container">
+      <div class="text-center mx-auto mb-4 reveal">
+        <span class="section-kicker">Visual Portfolio</span>
+        <h2 class="section-title">Inside Élora &amp; Our Artistry</h2>
+        <p class="section-subtitle mx-auto">
+          Explore moments of tranquil luxury, radiant bridal looks, and sculpted hair transformations.
+        </p>
+      </div>
+
+      <!-- Category Filter Tabs -->
+      <div class="d-flex flex-wrap justify-content-center gap-2 mb-5 reveal" role="group" aria-label="Gallery category filters">
+        <button type="button" class="gallery-filter-btn active" data-filter="all">All</button>
+        <button type="button" class="gallery-filter-btn" data-filter="salon">Salon Interior</button>
+        <button type="button" class="gallery-filter-btn" data-filter="hair">Hair Artistry</button>
+        <button type="button" class="gallery-filter-btn" data-filter="makeup">Makeup &amp; Skincare</button>
+      </div>
+
+      <!-- Responsive Gallery Grid -->
+      <div class="row g-4" id="galleryGrid">
+        <div class="col-sm-6 col-lg-4 gallery-col reveal" data-category="salon">
+          <div class="gallery-item" data-index="0">
+            <img
+              src="https://images.unsplash.com/photo-1633681926022-84c23e8cb2d6?auto=format&fit=crop&w=900&q=85"
+              alt="Warm sunlit styling stations at Élora Beauty Studio"
+              onerror="this.src='https://placehold.co/800x840/E9DED3/352B27?text=Salon+Suite'"
+            />
+            <div class="gallery-overlay">
+              <span class="small text-uppercase text-gold fw-semibold" style="letter-spacing: 0.14em;">Salon Interior</span>
+              <h3 class="h5 text-white mb-0">Sunlit Styling Sanctuary</h3>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-6 col-lg-4 gallery-col reveal" data-category="makeup">
+          <div class="gallery-item" data-index="1">
+            <img
+              src="https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?auto=format&fit=crop&w=900&q=85"
+              alt="Luminous bridal beauty makeup preparation"
+              onerror="this.src='https://placehold.co/800x840/E9DED3/352B27?text=Bridal+Artistry'"
+            />
+            <div class="gallery-overlay">
+              <span class="small text-uppercase text-gold fw-semibold" style="letter-spacing: 0.14em;">Makeup &amp; Skincare</span>
+              <h3 class="h5 text-white mb-0">Ethereal Bridal Radiance</h3>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-6 col-lg-4 gallery-col reveal" data-category="hair">
+          <div class="gallery-item" data-index="2">
+            <img
+              src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?auto=format&fit=crop&w=900&q=85"
+              alt="Silky dimensional waves and hair styling"
+              onerror="this.src='https://placehold.co/800x840/E9DED3/352B27?text=Couture+Waves'"
+            />
+            <div class="gallery-overlay">
+              <span class="small text-uppercase text-gold fw-semibold" style="letter-spacing: 0.14em;">Hair Artistry</span>
+              <h3 class="h5 text-white mb-0">Silk Blowout &amp; Soft Waves</h3>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-6 col-lg-4 gallery-col reveal" data-category="salon">
+          <div class="gallery-item" data-index="3">
+            <img
+              src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=900&q=85"
+              alt="Private spa relaxation treatment room"
+              onerror="this.src='https://placehold.co/800x840/E9DED3/352B27?text=Spa+Sanctuary'"
+            />
+            <div class="gallery-overlay">
+              <span class="small text-uppercase text-gold fw-semibold" style="letter-spacing: 0.14em;">Salon Interior</span>
+              <h3 class="h5 text-white mb-0">Private Spa Relaxation Suite</h3>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-6 col-lg-4 gallery-col reveal" data-category="hair">
+          <div class="gallery-item" data-index="4">
+            <img
+              src="https://images.unsplash.com/photo-1605497788044-5a32c7078486?auto=format&fit=crop&w=900&q=85"
+              alt="Champagne dimensional balayage hair coloring"
+              onerror="this.src='https://placehold.co/800x840/E9DED3/352B27?text=Dimensional+Color'"
+            />
+            <div class="gallery-overlay">
+              <span class="small text-uppercase text-gold fw-semibold" style="letter-spacing: 0.14em;">Hair Artistry</span>
+              <h3 class="h5 text-white mb-0">Champagne Dimensional Gloss</h3>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-6 col-lg-4 gallery-col reveal" data-category="makeup">
+          <div class="gallery-item" data-index="5">
+            <img
+              src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=900&q=85"
+              alt="Botanical glass-skin facial ritual"
+              onerror="this.src='https://placehold.co/800x840/E9DED3/352B27?text=Botanical+Facial'"
+            />
+            <div class="gallery-overlay">
+              <span class="small text-uppercase text-gold fw-semibold" style="letter-spacing: 0.14em;">Makeup &amp; Skincare</span>
+              <h3 class="h5 text-white mb-0">Botanical Glass-Skin Facial</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       PRICING & PACKAGES SECTION
+       ======================================================================== -->
+  <section id="pricing" class="section-padding bg-beige">
+    <div class="container">
+      <div class="text-center mx-auto mb-5 reveal">
+        <span class="section-kicker">Curated Packages</span>
+        <h2 class="section-title">Pricing &amp; Signature Rituals</h2>
+        <p class="section-subtitle mx-auto">
+          Thoughtfully bundled multi-hour experiences designed to refresh, restore, and celebrate your special milestones.
+        </p>
+      </div>
+
+      <div class="row g-4 align-items-stretch pt-3">
+        <!-- Package 1: Essential Glow -->
+        <div class="col-lg-4 reveal">
+          <div class="pricing-card">
+            <div class="text-uppercase small fw-semibold text-gold mb-2" style="letter-spacing: 0.16em;">2.5 Hours</div>
+            <h3 class="h2 mb-2">Essential Glow</h3>
+            <p class="small text-espresso-soft mb-4">
+              An ideal monthly refresh to restore radiance to skin, hair, and nails.
+            </p>
+            <div class="d-flex align-items-baseline gap-1">
+              <span class="pricing-amount">$195</span>
+              <span class="small text-espresso-soft">/ session</span>
+            </div>
+
+            <ul class="pricing-features">
+              <li><i class="bi bi-check2 text-gold fs-5"></i><span>60-Minute Botanical Glow Facial</span></li>
+              <li><i class="bi bi-check2 text-gold fs-5"></i><span>Signature Silk Blowout &amp; Gloss</span></li>
+              <li><i class="bi bi-check2 text-gold fs-5"></i><span>Classic Luxury Spa Manicure</span></li>
+              <li><i class="bi bi-check2 text-gold fs-5"></i><span>Complimentary Herbal Tea Ritual</span></li>
+            </ul>
+
+            <button
+              type="button"
+              class="btn-luxury-outline w-100 book-package-btn"
+              data-package="Essential Glow Package ($195)"
+            >
+              Select Essential Glow
+            </button>
+          </div>
+        </div>
+
+        <!-- Package 2: Luxury Experience (Featured) -->
+        <div class="col-lg-4 reveal">
+          <div class="pricing-card featured">
+            <div class="pricing-badge">Most Popular</div>
+            <div class="text-uppercase small fw-semibold mb-2" style="letter-spacing: 0.16em; color: var(--color-champagne);">4 Hours</div>
+            <h3 class="h2 mb-2">Luxury Experience</h3>
+            <p class="small mb-4" style="color: rgba(255,255,255,0.75);">
+              Full head-to-toe sanctuary immersion combining deep relaxation and couture styling.
+            </p>
+            <div class="d-flex align-items-baseline gap-1">
+              <span class="pricing-amount">$340</span>
+              <span class="small" style="color: rgba(255,255,255,0.75);">/ session</span>
+            </div>
+
+            <ul class="pricing-features">
+              <li><i class="bi bi-check2 text-gold fs-5"></i><span>75-Min Cellular Renewal &amp; Sculpt Facial</span></li>
+              <li><i class="bi bi-check2 text-gold fs-5"></i><span>60-Min Aromatherapy Hot-Stone Massage</span></li>
+              <li><i class="bi bi-check2 text-gold fs-5"></i><span>Keratin Hair Mask &amp; Couture Styling</span></li>
+              <li><i class="bi bi-check2 text-gold fs-5"></i><span>Deluxe Spa Manicure &amp; Pedicure</span></li>
+              <li><i class="bi bi-check2 text-gold fs-5"></i><span>Private Suite Refreshments &amp; Gift</span></li>
+            </ul>
+
+            <button
+              type="button"
+              class="btn-luxury-gold w-100 book-package-btn"
+              data-package="Luxury Experience Package ($340)"
+            >
+              Select Luxury Experience
+            </button>
+          </div>
+        </div>
+
+        <!-- Package 3: Bridal Glamour -->
+        <div class="col-lg-4 reveal">
+          <div class="pricing-card">
+            <div class="text-uppercase small fw-semibold text-gold mb-2" style="letter-spacing: 0.16em;">Trial + Wedding Day</div>
+            <h3 class="h2 mb-2">Bridal Glamour</h3>
+            <p class="small text-espresso-soft mb-4">
+              Comprehensive bridal beauty artistry ensuring serene perfection on your wedding day.
+            </p>
+            <div class="d-flex align-items-baseline gap-1">
+              <span class="pricing-amount">$520</span>
+              <span class="small text-espresso-soft">/ complete</span>
+            </div>
+
+            <ul class="pricing-features">
+              <li><i class="bi bi-check2 text-gold fs-5"></i><span>Dedicated Bridal Hair &amp; Makeup Preview</span></li>
+              <li><i class="bi bi-check2 text-gold fs-5"></i><span>Pre-Wedding Glass-Skin Prep Facial</span></li>
+              <li><i class="bi bi-check2 text-gold fs-5"></i><span>Wedding Day Couture Bridal Makeup</span></li>
+              <li><i class="bi bi-check2 text-gold fs-5"></i><span>Wedding Day Bridal Updo or Waves</span></li>
+              <li><i class="bi bi-check2 text-gold fs-5"></i><span>Luxury Touch-Up Kit Included</span></li>
+            </ul>
+
+            <button
+              type="button"
+              class="btn-luxury-outline w-100 book-package-btn"
+              data-package="Bridal Glamour Package ($520)"
+            >
+              Select Bridal Glamour
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       APPOINTMENT BOOKING SECTION
+       ======================================================================== -->
+  <section id="booking" class="section-padding bg-ivory">
+    <div class="container">
+      <div class="booking-wrapper reveal">
+        <div class="row g-0">
+          <!-- Left Luxury Info Column -->
+          <div class="col-lg-5">
+            <div class="booking-aside">
+              <div>
+                <span class="text-uppercase small fw-semibold d-block mb-2" style="letter-spacing: 0.2em; color: var(--color-champagne);">
+                  Reservations
+                </span>
+                <h2 class="display-6 text-white mb-3">Reserve Your Private Appointment</h2>
+                <p class="small mb-4" style="color: rgba(255,255,255,0.78);">
+                  Select your desired ritual, date, and preferred time window. Our guest relations concierge will confirm your booking promptly.
+                </p>
+
+                <div class="d-flex flex-column gap-3 mt-4 pt-3 border-top border-light border-opacity-10">
+                  <div class="d-flex align-items-center gap-3">
+                    <i class="bi bi-clock text-gold fs-5"></i>
+                    <div>
+                      <div class="small fw-semibold text-white">Studio Hours</div>
+                      <div class="small" style="color: rgba(255,255,255,0.72);">Tue – Sun: 9:30 AM – 8:00 PM</div>
+                    </div>
+                  </div>
+                  <div class="d-flex align-items-center gap-3">
+                    <i class="bi bi-shield-check text-gold fs-5"></i>
+                    <div>
+                      <div class="small fw-semibold text-white">Flexible Rescheduling</div>
+                      <div class="small" style="color: rgba(255,255,255,0.72);">Complimentary changes up to 24 hours prior</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mt-5 pt-3">
+                <p class="font-serif fst-italic fs-5 mb-0" style="color: var(--color-champagne);">
+                  "Where Beauty Meets Elegance."
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Interactive Form Column -->
+          <div class="col-lg-7 p-4 p-md-5 bg-white">
+            <!-- Confirmation Message Box (Hidden until valid submit) -->
+            <div id="bookingConfirmation" class="d-none text-center py-4">
+              <div class="pillar-icon-ring mx-auto mb-3" style="background-color: var(--color-ivory);">
+                <i class="bi bi-check-lg fs-2"></i>
+              </div>
+              <span class="section-kicker">Appointment Confirmed</span>
+              <h3 class="h2 mb-2">Appointment Confirmed!</h3>
+              <p class="small text-uppercase fw-semibold text-gold mb-2" style="letter-spacing: 0.14em;">
+                Booking Reference: <span id="confirmBookingRef"></span>
+              </p>
+              <div class="mb-3">
+                <span id="emailDispatchBadge" class="sample-label-pill">
+                  <i class="bi bi-envelope-check-fill text-gold me-1"></i> Dispatched to Studio Concierge Email
+                </span>
+              </div>
+              <p class="text-espresso-soft mx-auto mb-4" style="max-width: 480px;">
+                Thank you, <strong id="confirmClientName">Guest</strong>. Your appointment request for <strong id="confirmServiceName"></strong> on <strong id="confirmDateTime"></strong> has been received and sent directly to our salon concierge.
+              </p>
+
+              <!-- Booking Summary Card -->
+              <div class="bg-ivory rounded-4 p-3 p-md-4 mx-auto mb-4 text-start border border-secondary border-opacity-10" style="max-width: 460px;">
+                <div class="d-flex justify-content-between small py-1 border-bottom border-secondary border-opacity-10">
+                  <span class="text-espresso-soft">Service:</span>
+                  <span class="fw-semibold text-end" id="summaryService"></span>
+                </div>
+                <div class="d-flex justify-content-between small py-1 border-bottom border-secondary border-opacity-10">
+                  <span class="text-espresso-soft">Date &amp; Time:</span>
+                  <span class="fw-semibold text-end" id="summaryDateTime"></span>
+                </div>
+                <div class="d-flex justify-content-between small py-1">
+                  <span class="text-espresso-soft">Contact:</span>
+                  <span class="fw-semibold text-end" id="summaryContact"></span>
+                </div>
+              </div>
+
+              <div class="d-flex flex-column flex-sm-row justify-content-center align-items-center gap-3">
+                <button type="button" id="resetBookingBtn" class="btn-luxury-primary">
+                  Book Another Appointment
+                </button>
+                <a
+                  id="emailFallbackLink"
+                  href="mailto:dhyeybhalodiya14@gmail.com"
+                  class="btn-luxury-outline py-2 px-3"
+                  style="font-size: 0.75rem;"
+                >
+                  <i class="bi bi-envelope-paper text-gold"></i>
+                  <span>Send Copy via Email App</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- Booking Form -->
+            <form id="appointmentForm" novalidate>
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label for="fullName" class="form-label-luxury">Full Name *</label>
+                  <input type="text" class="form-control form-control-luxury" id="fullName" placeholder="e.g., Claire Beaumont" required />
+                  <div class="invalid-feedback">Please enter your full name (at least 2 characters).</div>
+                </div>
+
+                <div class="col-md-6">
+                  <label for="phoneNumber" class="form-label-luxury">Phone Number *</label>
+                  <input type="tel" class="form-control form-control-luxury" id="phoneNumber" placeholder="e.g., +1 (555) 234-5678" required />
+                  <div class="invalid-feedback">Please enter a valid phone number.</div>
+                </div>
+
+                <div class="col-md-6">
+                  <label for="emailAddress" class="form-label-luxury">Email Address *</label>
+                  <input type="email" class="form-control form-control-luxury" id="emailAddress" placeholder="claire@example.com" required />
+                  <div class="invalid-feedback">Please enter a valid email address.</div>
+                </div>
+
+                <div class="col-md-6">
+                  <label for="serviceSelect" class="form-label-luxury">Select Service or Package *</label>
+                  <select class="form-select form-select-luxury" id="serviceSelect" required>
+                    <option value="" selected disabled>Choose a treatment...</option>
+                    <optgroup label="Individual Services">
+                      <option value="Hair Styling & Treatment">Hair Styling &amp; Treatment (From $85)</option>
+                      <option value="Bridal Makeup">Bridal Makeup (From $240)</option>
+                      <option value="Facial & Skincare">Facial &amp; Skincare (From $115)</option>
+                      <option value="Manicure & Pedicure">Manicure &amp; Pedicure (From $65)</option>
+                      <option value="Spa & Relaxation">Spa &amp; Relaxation (From $135)</option>
+                      <option value="Hair Coloring">Hair Coloring (From $145)</option>
+                    </optgroup>
+                    <optgroup label="Signature Packages">
+                      <option value="Essential Glow Package ($195)">Essential Glow Package ($195)</option>
+                      <option value="Luxury Experience Package ($340)">Luxury Experience Package ($340)</option>
+                      <option value="Bridal Glamour Package ($520)">Bridal Glamour Package ($520)</option>
+                    </optgroup>
+                  </select>
+                  <div class="invalid-feedback">Please select a service or package.</div>
+                </div>
+
+                <div class="col-md-6">
+                  <label for="preferredDate" class="form-label-luxury">Preferred Date *</label>
+                  <input type="date" class="form-control form-control-luxury" id="preferredDate" required />
+                  <div class="invalid-feedback">Please select a valid future date.</div>
+                </div>
+
+                <div class="col-md-6">
+                  <label for="preferredTime" class="form-label-luxury">Preferred Time *</label>
+                  <select class="form-select form-select-luxury" id="preferredTime" required>
+                    <option value="" selected disabled>Select time slot...</option>
+                    <option value="10:00 AM">10:00 AM — Morning Sanctuary</option>
+                    <option value="11:30 AM">11:30 AM — Late Morning</option>
+                    <option value="01:30 PM">01:30 PM — Early Afternoon</option>
+                    <option value="03:30 PM">03:30 PM — Mid Afternoon</option>
+                    <option value="05:30 PM">05:30 PM — Evening Glow</option>
+                  </select>
+                  <div class="invalid-feedback">Please choose a preferred time slot.</div>
+                </div>
+
+                <div class="col-12">
+                  <label for="additionalMessage" class="form-label-luxury">Additional Message (Optional)</label>
+                  <textarea class="form-control form-control-luxury" id="additionalMessage" rows="3" placeholder="Share any skin sensitivities, hair goals, or special occasion notes..."></textarea>
+                </div>
+
+                <div class="col-12 mt-4">
+                  <button type="submit" id="submitBookingBtn" class="btn-luxury-primary w-100 py-3">
+                    <span id="submitBtnText">Confirm Appointment</span>
+                    <i id="submitBtnIcon" class="bi bi-calendar2-check"></i>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       TESTIMONIALS SECTION (CLEARLY LABELLED SAMPLE REVIEWS)
+       ======================================================================== -->
+  <section class="section-padding bg-beige">
+    <div class="container">
+      <div class="text-center mx-auto mb-5 reveal">
+        <span class="section-kicker">Guest Impressions</span>
+        <h2 class="section-title">Client Experiences</h2>
+        <p class="section-subtitle mx-auto mb-2">
+          Discover the atmosphere and attention to detail guests enjoy at Élora Beauty Studio.
+        </p>
+        <span class="sample-label-pill">Sample Client Testimonials — Portfolio Preview</span>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-4 reveal">
+          <div class="testimonial-card">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <div class="text-gold" aria-label="5 out of 5 stars">
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+              </div>
+              <span class="sample-label-pill">Sample Review</span>
+            </div>
+            <p class="font-serif fs-5 fst-italic mb-4 flex-grow-1">
+              "From the warm herbal tea upon arrival to the sculptural botanical facial, every minute felt serene and unhurried. My skin has never looked calmer or more luminous."
+            </p>
+            <div class="border-top pt-3">
+              <div class="fw-semibold">Amélie D.</div>
+              <small class="text-espresso-soft">Facial &amp; Skincare Guest</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 reveal">
+          <div class="testimonial-card">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <div class="text-gold" aria-label="5 out of 5 stars">
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+              </div>
+              <span class="sample-label-pill">Sample Review</span>
+            </div>
+            <p class="font-serif fs-5 fst-italic mb-4 flex-grow-1">
+              "The Bridal Glamour package took all the stress out of my wedding morning. The soft, radiant makeup lasted effortlessly through tears and dancing."
+            </p>
+            <div class="border-top pt-3">
+              <div class="fw-semibold">Hannah M.</div>
+              <small class="text-espresso-soft">Bridal Glamour Guest</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 reveal">
+          <div class="testimonial-card">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <div class="text-gold" aria-label="5 out of 5 stars">
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+              </div>
+              <span class="sample-label-pill">Sample Review</span>
+            </div>
+            <p class="font-serif fs-5 fst-italic mb-4 flex-grow-1">
+              "Such a refined, peaceful salon aesthetic. My dimensional balayage and silk blowout looked natural, glossy, and healthy for months afterward."
+            </p>
+            <div class="border-top pt-3">
+              <div class="fw-semibold">Sofia R.</div>
+              <small class="text-espresso-soft">Hair Coloring &amp; Styling Guest</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       CONTACT SECTION
+       ======================================================================== -->
+  <section id="contact" class="section-padding bg-ivory">
+    <div class="container">
+      <div class="text-center mx-auto mb-5 reveal">
+        <span class="section-kicker">Visit The Studio</span>
+        <h2 class="section-title">Location &amp; Contact</h2>
+        <p class="section-subtitle mx-auto">
+          We welcome private consultations, bridal inquiries, and bespoke gift card requests.
+        </p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-3 reveal">
+          <div class="contact-info-card">
+            <div class="about-highlight-icon mb-3"><i class="bi bi-geo-alt"></i></div>
+            <h3 class="h4 mb-2">Studio Address</h3>
+            <p class="small text-espresso-soft mb-3">
+              240 Atelier Avenue, Suite 300<br />
+              Sample District, NY 10013
+            </p>
+            <a href="https://maps.google.com/?q=240+Atelier+Avenue" target="_blank" rel="noopener noreferrer" class="btn-learn-more">
+              <span>View on Google Maps</span>
+              <i class="bi bi-box-arrow-up-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3 reveal">
+          <div class="contact-info-card">
+            <div class="about-highlight-icon mb-3"><i class="bi bi-telephone"></i></div>
+            <h3 class="h4 mb-2">Direct Concierge</h3>
+            <p class="small text-espresso-soft mb-2">
+              Phone: <a href="tel:+15550192834" class="text-decoration-none text-dark">+1 (555) 019-2834</a>
+            </p>
+            <p class="small text-espresso-soft mb-0">
+              Email: <a href="mailto:concierge@elorabeautystudio.example" class="text-decoration-none text-dark">concierge@elorabeautystudio.example</a>
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3 reveal">
+          <div class="contact-info-card">
+            <div class="about-highlight-icon mb-3"><i class="bi bi-clock"></i></div>
+            <h3 class="h4 mb-2">Business Hours</h3>
+            <ul class="list-unstyled small text-espresso-soft mb-0">
+              <li class="d-flex justify-content-between mb-1"><span>Tue – Fri:</span><span>9:30 AM – 8:00 PM</span></li>
+              <li class="d-flex justify-content-between mb-1"><span>Saturday:</span><span>9:00 AM – 7:00 PM</span></li>
+              <li class="d-flex justify-content-between mb-1"><span>Sunday:</span><span>10:00 AM – 6:00 PM</span></li>
+              <li class="d-flex justify-content-between text-gold"><span>Monday:</span><span>Closed</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3 reveal">
+          <div class="contact-info-card">
+            <div class="about-highlight-icon mb-3"><i class="bi bi-share"></i></div>
+            <h3 class="h4 mb-2">Follow Élora</h3>
+            <p class="small text-espresso-soft mb-3">
+              Inspiration, seasonal skincare notes, and bridal lookbooks.
+            </p>
+            <div class="d-flex gap-2">
+              <a href="#contact" class="social-circle-btn" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+              <a href="#contact" class="social-circle-btn" aria-label="Pinterest"><i class="bi bi-pinterest"></i></a>
+              <a href="#contact" class="social-circle-btn" aria-label="TikTok"><i class="bi bi-tiktok"></i></a>
+              <a href="#contact" class="social-circle-btn" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       FOOTER
+       ======================================================================== -->
+  <footer class="footer-elora">
+    <div class="container">
+      <div class="row g-4 pb-5 border-bottom border-light border-opacity-10">
+        <div class="col-lg-4">
+          <a class="brand-logo mb-3" href="#home">
+            <span class="brand-logo-main text-white">ÉLORA</span>
+            <span class="brand-logo-sub">Beauty Studio</span>
+          </a>
+          <p class="small mb-4" style="max-width: 340px;">
+            Where Beauty Meets Elegance. An intimate luxury sanctuary dedicated to personalized skincare, couture hair artistry, and serene bridal beauty.
+          </p>
+          <div class="d-flex gap-2">
+            <a href="#contact" class="social-circle-btn text-white" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="#contact" class="social-circle-btn text-white" aria-label="Pinterest"><i class="bi bi-pinterest"></i></a>
+            <a href="#contact" class="social-circle-btn text-white" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+          </div>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-2">
+          <h4 class="h6 text-uppercase text-white mb-3" style="letter-spacing: 0.16em;">Navigation</h4>
+          <ul class="list-unstyled small">
+            <li><a href="#home" class="footer-link">Home</a></li>
+            <li><a href="#about" class="footer-link">About Us</a></li>
+            <li><a href="#services" class="footer-link">Services</a></li>
+            <li><a href="#gallery" class="footer-link">Gallery</a></li>
+            <li><a href="#pricing" class="footer-link">Pricing</a></li>
+          </ul>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-3">
+          <h4 class="h6 text-uppercase text-white mb-3" style="letter-spacing: 0.16em;">Signature Treatments</h4>
+          <ul class="list-unstyled small">
+            <li><a href="#services" class="footer-link">Hair Styling &amp; Treatment</a></li>
+            <li><a href="#services" class="footer-link">Bridal Makeup</a></li>
+            <li><a href="#services" class="footer-link">Facial &amp; Skincare</a></li>
+            <li><a href="#services" class="footer-link">Spa &amp; Relaxation</a></li>
+            <li><a href="#services" class="footer-link">Hair Coloring</a></li>
+          </ul>
+        </div>
+
+        <div class="col-md-4 col-lg-3">
+          <h4 class="h6 text-uppercase text-white mb-3" style="letter-spacing: 0.16em;">Concierge</h4>
+          <ul class="list-unstyled small">
+            <li class="mb-2"><i class="bi bi-geo-alt text-gold me-2"></i>240 Atelier Ave, Suite 300</li>
+            <li class="mb-2"><i class="bi bi-telephone text-gold me-2"></i>+1 (555) 019-2834</li>
+            <li class="mb-3"><i class="bi bi-envelope text-gold me-2"></i>concierge@elorabeautystudio.example</li>
+            <li><a href="#booking" class="btn-luxury-gold py-2 px-4">Book Now</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="d-flex flex-column flex-md-row justify-content-between align-items-center pt-4 small">
+        <p class="mb-2 mb-md-0">&copy; <span id="currentYear"></span> ÉLORA BEAUTY STUDIO. All rights reserved.</p>
+        <p class="mb-0 text-white-50">Crafted with timeless elegance.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========================================================================
+       SERVICE DETAIL MODAL
+       ======================================================================== -->
+  <div class="modal fade modal-luxury" id="serviceDetailModal" tabindex="-1" aria-labelledby="serviceModalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="row g-0">
+          <div class="col-md-5">
+            <img id="serviceModalImg" src="" alt="" class="w-100 h-100" style="object-fit: cover; min-height: 280px;" />
+          </div>
+          <div class="col-md-7 p-4 p-md-5 d-flex flex-column justify-content-between">
+            <div>
+              <div class="d-flex justify-content-between align-items-start mb-2">
+                <span id="serviceModalDuration" class="sample-label-pill"></span>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close modal"></button>
+              </div>
+              <h3 id="serviceModalTitle" class="h2 mb-2"></h3>
+              <div id="serviceModalPrice" class="fw-semibold text-gold fs-5 mb-3"></div>
+              <p id="serviceModalDesc" class="small text-espresso-soft mb-3"></p>
+              <h4 class="h6 text-uppercase fw-semibold mb-2" style="letter-spacing: 0.12em;">What's Included:</h4>
+              <ul id="serviceModalIncludes" class="small text-espresso-soft ps-3 mb-4"></ul>
+            </div>
+            <div class="d-flex gap-2">
+              <button type="button" id="modalBookServiceBtn" class="btn-luxury-primary w-100">
+                Book This Service
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       GALLERY LIGHTBOX MODAL
+       ======================================================================== -->
+  <div class="modal fade modal-luxury" id="galleryLightboxModal" tabindex="-1" aria-label="Image Lightbox" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content bg-espresso text-white border-0">
+        <div class="modal-header border-0 pb-0">
+          <div>
+            <span id="lightboxCategory" class="small text-uppercase text-gold fw-semibold" style="letter-spacing: 0.16em;"></span>
+            <h3 id="lightboxTitle" class="h4 text-white mb-0"></h3>
+          </div>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close lightbox"></button>
+        </div>
+        <div class="modal-body text-center p-3 p-md-4 position-relative">
+          <img id="lightboxImg" src="" alt="" class="img-fluid rounded-4" style="max-height: 70vh; object-fit: contain;" />
+          <div class="d-flex justify-content-between align-items-center mt-3">
+            <button type="button" id="lightboxPrevBtn" class="btn-luxury-outline text-white border-light py-2 px-3">
+              <i class="bi bi-arrow-left"></i> Prev
+            </button>
+            <span id="lightboxCounter" class="small text-white-50"></span>
+            <button type="button" id="lightboxNextBtn" class="btn-luxury-outline text-white border-light py-2 px-3">
+              Next <i class="bi bi-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Back-to-Top Button -->
+  <button type="button" id="backToTopBtn" class="back-to-top" aria-label="Back to top">
+    <i class="bi bi-arrow-up"></i>
+  </button>
+
+  <!-- Bootstrap 5.3 JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    /**
+     * ========================================================================
+     * ADMIN EMAIL CONFIGURATION
+     * Direct booking notifications are delivered silently to this email
+     * via FormSubmit.co's AJAX JSON API without leaving the website.
+     * Note: On the very first test submission, check your inbox/spam folder
+     * for a one-time FormSubmit activation email and click "Activate Form".
+     * ========================================================================
+     */
+    const SALON_ADMIN_EMAIL = "dhyeybhalodiya14@gmail.com";
+
+    /**
+     * ÉLORA BEAUTY STUDIO — Interactive Frontend Logic
+     * Handles:
+     * 1. Sticky Navbar scroll transitions & mobile auto-collapse
+     * 2. IntersectionObserver Scroll Reveal animations
+     * 3. Service Detail Modal & direct booking pre-selection
+     * 4. Gallery Category Filtering & Interactive Lightbox with Prev/Next
+     * 5. Pricing Package direct booking pre-selection
+     * 6. Appointment Form validation, direct AJAX email delivery & confirmation
+     * 7. Smooth Back-to-Top control
+     */
+    document.addEventListener("DOMContentLoaded", () => {
+      // Set dynamic copyright year
+      const yearEl = document.getElementById("currentYear");
+      if (yearEl) {
+        yearEl.textContent = new Date().getFullYear();
+      }
+
+      // ======================================================================
+      // 1. STICKY NAVBAR & MOBILE MENU AUTO-CLOSE
+      // ======================================================================
+      const navbar = document.getElementById("mainNavbar");
+      const navCollapseEl = document.getElementById("navbarNavContent");
+      const navLinks = document.querySelectorAll(".navbar-elora .nav-link");
+      const backToTopBtn = document.getElementById("backToTopBtn");
+
+      const handleScroll = () => {
+        if (window.scrollY > 40) {
+          navbar.classList.add("scrolled");
+        } else {
+          navbar.classList.remove("scrolled");
+        }
+
+        if (window.scrollY > 450) {
+          backToTopBtn.classList.add("visible");
+        } else {
+          backToTopBtn.classList.remove("visible");
+        }
+      };
+
+      window.addEventListener("scroll", handleScroll, { passive: true });
+      handleScroll();
+
+      // Collapse mobile menu when a navigation link is clicked
+      navLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          if (navCollapseEl.classList.contains("show")) {
+            const bsCollapse = bootstrap.Collapse.getOrCreateInstance(navCollapseEl);
+            bsCollapse.hide();
+          }
+        });
+      });
+
+      // Back-to-Top click handler
+      backToTopBtn.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+
+      // ======================================================================
+      // 2. SCROLL REVEAL ANIMATIONS
+      // ======================================================================
+      const revealElements = document.querySelectorAll(".reveal");
+      if ("IntersectionObserver" in window) {
+        const revealObserver = new IntersectionObserver(
+          (entries, observer) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("revealed");
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
+        );
+
+        revealElements.forEach((el) => revealObserver.observe(el));
+      } else {
+        revealElements.forEach((el) => el.classList.add("revealed"));
+      }
+
+      // ======================================================================
+      // 3. SERVICE DETAIL MODAL & DIRECT BOOKING PRE-SELECTION
+      // ======================================================================
+      const servicesData = {
+        "hair-styling": {
+          title: "Hair Styling & Treatment",
+          price: "Starting at $85",
+          duration: "60 – 90 Mins",
+          image: "https://images.unsplash.com/photo-1562322140-8baeececf3df?auto=format&fit=crop&w=800&q=85",
+          description:
+            "Tailored couture haircuts, signature bouncy blowouts, and restorative botanical scalp and keratin infusions crafted to leave hair weightless, glossy, and resilient.",
+          includes: [
+            "In-depth scalp & hair porosity consultation",
+            "Aromatherapy scalp massage & botanical cleanse",
+            "Deep lipid or keratin bond-restoring mask",
+            "Precision cut or silk round-brush styling finish"
+          ]
+        },
+        "bridal-makeup": {
+          title: "Bridal Makeup",
+          price: "Starting at $240",
+          duration: "90 – 120 Mins",
+          image: "https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?auto=format&fit=crop&w=800&q=85",
+          description:
+            "Timeless, luminous bridal artistry formulated for all-day wear and high-definition photography, enhancing your natural radiance without feeling heavy.",
+          includes: [
+            "Hydrating glass-skin prep & lymphatic mini-sculpt",
+            "Custom-blended complexion & soft-focus finish",
+            "Individual silk lash application included",
+            "Complimentary bridal lip & blotting touch-up kit"
+          ]
+        },
+        "facial-skincare": {
+          title: "Facial & Skincare",
+          price: "Starting at $115",
+          duration: "60 – 75 Mins",
+          image: "https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?auto=format&fit=crop&w=800&q=85",
+          description:
+            "A bespoke cellular renewal ritual combining gentle botanical enzyme exfoliation, sculptural facial massage, and concentrated peptide serums.",
+          includes: [
+            "Digital & tactile skin barrier analysis",
+            "Double botanical oil & enzymatic cleanse",
+            "20-minute sculptural facial & décolleté massage",
+            "Custom cryo-infused peptide & hyaluronic mask"
+          ]
+        },
+        "manicure-pedicure": {
+          title: "Manicure & Pedicure",
+          price: "Starting at $65",
+          duration: "75 – 90 Mins",
+          image: "https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=800&q=85",
+          description:
+            "Restorative hand and foot care featuring warm mineral soaks, organic sugar exfoliation, meticulous cuticle work, and breathable non-toxic lacquers.",
+          includes: [
+            "Rosewater & sea-mineral warm soak",
+            "Detailed nail shaping & gentle cuticle care",
+            "Warm shea butter & sweet almond massage",
+            "Choice of classic neutral polish or builder gel"
+          ]
+        },
+        "spa-relaxation": {
+          title: "Spa & Relaxation",
+          price: "Starting at $135",
+          duration: "60 – 90 Mins",
+          image: "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=800&q=85",
+          description:
+            "Unwind in a private candlelit suite with warm basalt stones, bespoke essential oil blends, and slow-tempo bodywork designed to melt deep tension.",
+          includes: [
+            "Custom aromatherapy oil selection",
+            "Full-body Swedish, deep tissue, or hot-stone therapy",
+            "Warm herbal compress foot & neck ritual",
+            "Post-treatment organic chamomile tea service"
+          ]
+        },
+        "hair-coloring": {
+          title: "Hair Coloring",
+          price: "Starting at $145",
+          duration: "2 – 3.5 Hours",
+          image: "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=800&q=85",
+          description:
+            "Lived-in dimensional balayage, seamless root melts, and luminous ammonia-free glosses formulated with bond-building protection for healthy shine.",
+          includes: [
+            "Undertone & hair integrity consultation",
+            "Custom hand-painted color or gloss formulation",
+            "Bond-building treatment mixed directly into color",
+            "Signature blowout & UV-shield styling finish"
+          ]
+        }
+      };
+
+      const serviceModalEl = document.getElementById("serviceDetailModal");
+      const serviceModal = new bootstrap.Modal(serviceModalEl);
+      let activeModalServiceTitle = "";
+
+      document.querySelectorAll(".btn-learn-more[data-service-id]").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const id = btn.getAttribute("data-service-id");
+          const data = servicesData[id];
+          if (!data) return;
+
+          activeModalServiceTitle = data.title;
+          document.getElementById("serviceModalImg").src = data.image;
+          document.getElementById("serviceModalImg").alt = data.title;
+          document.getElementById("serviceModalDuration").textContent = data.duration;
+          document.getElementById("serviceModalTitle").textContent = data.title;
+          document.getElementById("serviceModalPrice").textContent = data.price;
+          document.getElementById("serviceModalDesc").textContent = data.description;
+
+          const includesList = document.getElementById("serviceModalIncludes");
+          includesList.innerHTML = data.includes
+            .map((item) => `<li class="mb-1">${item}</li>`)
+            .join("");
+
+          serviceModal.show();
+        });
+      });
+
+      const selectServiceAndScroll = (serviceValue) => {
+        const serviceSelect = document.getElementById("serviceSelect");
+        const bookingSection = document.getElementById("booking");
+        const bookingConfirmation = document.getElementById("bookingConfirmation");
+        const appointmentForm = document.getElementById("appointmentForm");
+
+        // Ensure form is visible if a previous booking was just completed
+        if (!bookingConfirmation.classList.contains("d-none")) {
+          bookingConfirmation.classList.add("d-none");
+          appointmentForm.classList.remove("d-none");
+        }
+
+        for (let i = 0; i < serviceSelect.options.length; i++) {
+          if (serviceSelect.options[i].value === serviceValue) {
+            serviceSelect.selectedIndex = i;
+            serviceSelect.classList.remove("is-invalid");
+            break;
+          }
+        }
+
+        bookingSection.scrollIntoView({ behavior: "smooth" });
+      };
+
+      document.getElementById("modalBookServiceBtn").addEventListener("click", () => {
+        serviceModal.hide();
+        if (activeModalServiceTitle) {
+          selectServiceAndScroll(activeModalServiceTitle);
+        }
+      });
+
+      // Pricing Package buttons -> pre-select package in booking form
+      document.querySelectorAll(".book-package-btn").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const pkg = btn.getAttribute("data-package");
+          selectServiceAndScroll(pkg);
+        });
+      });
+
+      // ======================================================================
+      // 4. GALLERY CATEGORY FILTERING & LIGHTBOX
+      // ======================================================================
+      const galleryItemsData = [
+        {
+          src: "https://images.unsplash.com/photo-1633681926022-84c23e8cb2d6?auto=format&fit=crop&w=1200&q=90",
+          category: "Salon Interior",
+          title: "Sunlit Styling Sanctuary"
+        },
+        {
+          src: "https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?auto=format&fit=crop&w=1200&q=90",
+          category: "Makeup & Skincare",
+          title: "Ethereal Bridal Radiance"
+        },
+        {
+          src: "https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?auto=format&fit=crop&w=1200&q=90",
+          category: "Hair Artistry",
+          title: "Silk Blowout & Soft Waves"
+        },
+        {
+          src: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1200&q=90",
+          category: "Salon Interior",
+          title: "Private Spa Relaxation Suite"
+        },
+        {
+          src: "https://images.unsplash.com/photo-1605497788044-5a32c7078486?auto=format&fit=crop&w=1200&q=90",
+          category: "Hair Artistry",
+          title: "Champagne Dimensional Gloss"
+        },
+        {
+          src: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=1200&q=90",
+          category: "Makeup & Skincare",
+          title: "Botanical Glass-Skin Facial"
+        }
+      ];
+
+      const filterButtons = document.querySelectorAll(".gallery-filter-btn");
+      const galleryCols = document.querySelectorAll(".gallery-col");
+
+      filterButtons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          filterButtons.forEach((b) => b.classList.remove("active"));
+          btn.classList.add("active");
+
+          const filter = btn.getAttribute("data-filter");
+          galleryCols.forEach((col) => {
+            const category = col.getAttribute("data-category");
+            if (filter === "all" || category === filter) {
+              col.classList.remove("d-none");
+            } else {
+              col.classList.add("d-none");
+            }
+          });
+        });
+      });
+
+      const lightboxModalEl = document.getElementById("galleryLightboxModal");
+      const lightboxModal = new bootstrap.Modal(lightboxModalEl);
+      let currentLightboxIndex = 0;
+
+      const updateLightboxContent = (index) => {
+        currentLightboxIndex = (index + galleryItemsData.length) % galleryItemsData.length;
+        const item = galleryItemsData[currentLightboxIndex];
+        document.getElementById("lightboxImg").src = item.src;
+        document.getElementById("lightboxImg").alt = item.title;
+        document.getElementById("lightboxCategory").textContent = item.category;
+        document.getElementById("lightboxTitle").textContent = item.title;
+        document.getElementById("lightboxCounter").textContent = `${currentLightboxIndex + 1} / ${galleryItemsData.length}`;
+      };
+
+      document.querySelectorAll(".gallery-item").forEach((itemEl) => {
+        itemEl.addEventListener("click", () => {
+          const idx = parseInt(itemEl.getAttribute("data-index"), 10) || 0;
+          updateLightboxContent(idx);
+          lightboxModal.show();
+        });
+      });
+
+      document.getElementById("lightboxPrevBtn").addEventListener("click", () => {
+        updateLightboxContent(currentLightboxIndex - 1);
+      });
+
+      document.getElementById("lightboxNextBtn").addEventListener("click", () => {
+        updateLightboxContent(currentLightboxIndex + 1);
+      });
+
+      // ======================================================================
+      // 5. APPOINTMENT BOOKING FORM VALIDATION & DIRECT ADMIN EMAIL DELIVERY
+      // ======================================================================
+      const appointmentForm = document.getElementById("appointmentForm");
+      const preferredDateInput = document.getElementById("preferredDate");
+      const submitBookingBtn = document.getElementById("submitBookingBtn");
+      const submitBtnText = document.getElementById("submitBtnText");
+      const submitBtnIcon = document.getElementById("submitBtnIcon");
+      const emailDispatchBadge = document.getElementById("emailDispatchBadge");
+      const emailFallbackLink = document.getElementById("emailFallbackLink");
+
+      // Set minimum date to today
+      const todayISO = new Date().toISOString().split("T")[0];
+      preferredDateInput.setAttribute("min", todayISO);
+
+      // Required form inputs & validation helper
+      const requiredInputs = [
+        document.getElementById("fullName"),
+        document.getElementById("phoneNumber"),
+        document.getElementById("emailAddress"),
+        document.getElementById("serviceSelect"),
+        document.getElementById("preferredDate"),
+        document.getElementById("preferredTime")
+      ];
+
+      const validateField = (input) => {
+        const val = input.value.trim();
+        let isValid = true;
+
+        if (input.id === "fullName") {
+          isValid = val.length >= 2;
+        } else if (input.id === "phoneNumber") {
+          const digitsOnly = val.replace(/\D/g, "");
+          isValid = digitsOnly.length >= 7 && digitsOnly.length <= 15;
+        } else if (input.id === "emailAddress") {
+          isValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val);
+        } else if (input.id === "preferredDate") {
+          isValid = val !== "" && val >= todayISO;
+        } else {
+          isValid = val !== "";
+        }
+
+        if (isValid) {
+          input.classList.remove("is-invalid");
+        } else {
+          input.classList.add("is-invalid");
+        }
+        return isValid;
+      };
+
+      requiredInputs.forEach((input) => {
+        input.addEventListener("input", () => validateField(input));
+        input.addEventListener("change", () => validateField(input));
+      });
+
+      appointmentForm.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        let allValid = true;
+
+        requiredInputs.forEach((input) => {
+          if (!validateField(input)) {
+            allValid = false;
+          }
+        });
+
+        if (!allValid) {
+          const firstInvalid = appointmentForm.querySelector(".is-invalid");
+          if (firstInvalid) firstInvalid.focus();
+          return;
+        }
+
+        // Gather validated customer booking details
+        const clientName = document.getElementById("fullName").value.trim();
+        const clientPhone = document.getElementById("phoneNumber").value.trim();
+        const clientEmail = document.getElementById("emailAddress").value.trim();
+        const chosenService = document.getElementById("serviceSelect").value;
+        const chosenDate = document.getElementById("preferredDate").value;
+        const chosenTime = document.getElementById("preferredTime").value;
+        const specialNotes = document.getElementById("additionalMessage").value.trim() || "None specified";
+
+        // Generate a refined unique Booking Reference ID
+        const randomCode = Math.floor(1000 + Math.random() * 9000);
+        const bookingRef = `ELORA-${randomCode}`;
+
+        const formattedDate = new Date(chosenDate + "T00:00:00").toLocaleDateString("en-US", {
+          weekday: "short",
+          month: "long",
+          day: "numeric",
+          year: "numeric"
+        });
+
+        // Set button loading state while dispatching email silently
+        submitBookingBtn.disabled = true;
+        submitBtnText.textContent = "Confirming & Sending...";
+        submitBtnIcon.className = "spinner-border spinner-border-sm ms-1";
+
+        // Build clean mailto fallback URL with pre-filled booking details
+        const emailSubject = `New Appointment [${bookingRef}] — ${clientName} | ÉLORA BEAUTY STUDIO`;
+        const emailBody = [
+          `NEW APPOINTMENT REQUEST — ÉLORA BEAUTY STUDIO`,
+          `--------------------------------------------------`,
+          `Booking Reference: ${bookingRef}`,
+          `Client Name: ${clientName}`,
+          `Phone Number: ${clientPhone}`,
+          `Email Address: ${clientEmail}`,
+          `Service / Package: ${chosenService}`,
+          `Preferred Date: ${formattedDate}`,
+          `Preferred Time: ${chosenTime}`,
+          `Additional Notes: ${specialNotes}`,
+          `--------------------------------------------------`,
+          `Sent via Élora Beauty Studio Online Concierge`
+        ].join("\n");
+
+        emailFallbackLink.href = `mailto:${SALON_ADMIN_EMAIL}?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+
+        // Send structured booking payload silently to salon admin email via FormSubmit AJAX
+        let emailSentSuccess = false;
+        try {
+          const response = await fetch(`https://formsubmit.co/ajax/${SALON_ADMIN_EMAIL}`, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              "Accept": "application/json"
+            },
+            body: JSON.stringify({
+              _subject: emailSubject,
+              _template: "table",
+              _captcha: "false",
+              _replyto: clientEmail,
+              "Booking Reference": bookingRef,
+              "Client Full Name": clientName,
+              "Phone Number": clientPhone,
+              "Client Email": clientEmail,
+              "Selected Service / Package": chosenService,
+              "Preferred Date": formattedDate,
+              "Preferred Time": chosenTime,
+              "Additional Message": specialNotes
+            })
+          });
+
+          if (response.ok) {
+            const result = await response.json();
+            emailSentSuccess = result.success === "true" || result.success === true;
+          }
+        } catch (err) {
+          emailSentSuccess = false;
+        }
+
+        // Update dispatch badge status cleanly
+        if (emailSentSuccess) {
+          emailDispatchBadge.innerHTML = `<i class="bi bi-envelope-check-fill text-gold me-1"></i> Dispatched to Studio Concierge Email`;
+        } else {
+          emailDispatchBadge.innerHTML = `<i class="bi bi-check-circle-fill text-gold me-1"></i> Reservation Recorded — Use Email Copy Button if Needed`;
+        }
+
+        // Populate on-page confirmation screen so client remains seamlessly on the website
+        document.getElementById("confirmBookingRef").textContent = bookingRef;
+        document.getElementById("confirmClientName").textContent = clientName;
+        document.getElementById("confirmServiceName").textContent = chosenService;
+        document.getElementById("confirmDateTime").textContent = `${formattedDate} at ${chosenTime}`;
+        document.getElementById("summaryService").textContent = chosenService;
+        document.getElementById("summaryDateTime").textContent = `${formattedDate} • ${chosenTime}`;
+        document.getElementById("summaryContact").textContent = `${clientPhone} | ${clientEmail}`;
+
+        // Reset button state & transition booking card to the confirmation view
+        submitBookingBtn.disabled = false;
+        submitBtnText.textContent = "Confirm Appointment";
+        submitBtnIcon.className = "bi bi-calendar2-check";
+
+        appointmentForm.classList.add("d-none");
+        document.getElementById("bookingConfirmation").classList.remove("d-none");
+      });
+
+      document.getElementById("resetBookingBtn").addEventListener("click", () => {
+        appointmentForm.reset();
+        requiredInputs.forEach((input) => input.classList.remove("is-invalid"));
+        document.getElementById("bookingConfirmation").classList.add("d-none");
+        appointmentForm.classList.remove("d-none");
+      });
+    });
+  </script>
+</body>
+</html>
